@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { route } = require('express/lib/application');
-const { BlogPost, User } = require('../../models');
+const res = require('express/lib/response');
+const { BlogPost, User, BlogPost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Dashboard --> view all blog posts created by a certain user
@@ -24,6 +25,29 @@ router.get('/dashboard', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// Blog post --> read a certain blog post by the blog post id
+router.get('/dashboard/:id'), withAuth, async (req, res) => {
+  try {
+    const blogData = await BlogPost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const blog = blogData.get({ plain: true });
+
+    res.render('blogpost', {
+      ...blog,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
 
 // Create a new blog post --> withAuth makes sure user is logged in, then creates blog post from the content received in req.body
 router.post('/create', withAuth, async (req, res) => {
@@ -57,7 +81,7 @@ router.put('/:id', withAuth, async (req, res)=> {
 // Delete an existing blog post
 router.delete('/:id', async (req, res) => {
   try {
-    const deletePost = await Category.destroy({
+    const deletePost = await BlogPost.destroy({
       where: {
         id: req.params.id
       }
