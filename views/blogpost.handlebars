@@ -1,28 +1,30 @@
 <!-- Viewing a post Read/Comment/Update/Delete -->
-
-  <!-- If this is the users's post then display update, delete buttons, display contenteditable-->
+<!-- If this is the users's post then display update, delete buttons, display contenteditable-->
   <div class="container-fluid">
-    <!-- Title with update & delete buttons-->
-    <div class="row">
-      <p class="col-4">Imogen Waters 10/22/22</p>
-      <a href="#" class="btn btn-primary col-4">Title</a>
-      <a href="#" class="btn btn-primary col-2">Update</a>
-      <a href="#" class="btn btn-primary col-2">Delete</a>
+    <div class="row d-flex-row align-items-center justify-content-around mt-4 mb-4">
+      <div class="col-4 d-flex flex-column align-items-center">
+        <p class="text-center">Imogen Waters 10/22/22</p>
+      </div>
+      <a href="#" class="btn btn-primary col-4 fs-1">Title</a>
+      <div class="col-4 d-flex justify-content-around">
+        <a href="#" class="btn btn-primary col-2">Update</a>
+        <a href="#" class="btn btn-primary col-2">Delete</a>
+      </div>
     </div>
-  
-    <div class="row">
-      <div class="col text-start">
-        <p contenteditable="true"> 
-          Lorem ipsum dolor sit amet, etiam oportere ei duo, vim no elit etiam vivendum. Sale justo ei eam, pri an agam invidunt, 
-          ad oratio eripuit explicari vim. Delenit nonumes sententiae ne his, mel ipsum dicant ut. Ei diam interpretaris duo, 
+    <div class="row mt-4 mb-4">
+      <div class="col d-flex flex-column align-items-center justify-content-center">
+        <p contenteditable="true" class="w-75">
+          Lorem ipsum dolor sit amet, etiam oportere ei duo, vim no elit etiam vivendum. Sale justo ei eam, pri an agam
+          invidunt,
+          ad oratio eripuit explicari vim. Delenit nonumes sententiae ne his, mel ipsum dicant ut. Ei diam interpretaris
+          duo,
           his quando nonumes recusabo id, reque singulis est id. Tale labores an pri, te elit nobis mei.
         </p>
       </div>
     </div>
-
     <div class="row">
-      <form>
-        <input type="text" id="comment-form" name="comment-form"><br><br>
+      <form class="d-flex flex-column align-items-center justify-content-center">
+        <input type="text" id="comment-form" name="comment-form" class="w-75 p-2"><br>
         <a href="#" class="btn btn-primary col-2">Comment</a>
       </form>
     </div>

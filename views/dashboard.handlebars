@@ -1,19 +1,19 @@
 <!-- Dashboard Page only display posts from the user -->
-  <div class="container-fluid text-center">
-    <div class="row align-items-center">
-      <div class="col"> 
-        <h1>Dashboard</h1>
-      </div>
-      <div> 
-        <button type="button" class="btn btn-primary">Create new post</button>
-      </div>
+<div class="container-fluid text-center">
+  <div class="row align-items-center">
+    <div class="col mt-4">
+      <h1>Dashboard</h1>
     </div>
-
-    <div class="row justify-content-around">
-      <!-- Each Review Added -->
-
-      {{> post }}
-
+    <div>
+      <button type="button" class="btn btn-primary mb-5 mt-2">Create new post</button>
     </div>
+  </div>
+
+  <div class="row justify-content-around">
+    <!-- Each Review Added -->
+
+    {{> post }}
 
   </div>
+
+</div>
