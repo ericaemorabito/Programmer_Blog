@@ -1,8 +1,4 @@
-* {
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
-}
-
+/* Header and nav bar */
 header {
   margin-top: 0.8em;
   width: 100%;
@@ -34,18 +30,9 @@ li {
   padding: 1em;
 }
 
-/* Styling for each page */
+/* Styling different pages */
 
-main {
-  height: 100vh;
-  width: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0 0 0;
-}
-
-div {
-  text-align: center;
+/* Row take up entire screen*/
+.row {
+  height: 80vh;
 }

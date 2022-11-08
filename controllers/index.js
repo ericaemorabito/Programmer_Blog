@@ -13,16 +13,3 @@ router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 
 module.exports = router;
-
-
-//TODO:
-
-// --- User
-// Create new user/ sign up
-// Find user/ login
-
-// --- Blog Post
-// Create new post
-// Update existing post
-// Delete post
-

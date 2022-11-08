@@ -3,18 +3,35 @@ const res = require('express/lib/response');
 const { User } = require('../../models');
 const { restore } = require('../../models/User');
 
+// Test -- see all users
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll()
+
+    res.status(200).json(userData);
+  }catch(err){
+    console.error(err);
+    res.status(500);
+  }
+});
+
 // Sign up! --> Create a new user
 router.post('/signup', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const userData = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password
+    });
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.id = userData.id;
       req.session.logged_in = true;
 
       res.status(200).json(userData);
     });
   } catch (err) {
+    console.error(err);
     res.status(400).json(err);
   }
 });
@@ -47,8 +64,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout! --> if the user is logged in then destroy the current session/ log them out
-router.post('/logout', (req, res) => {
+//? Logout! --> if the user is logged in then destroy the current session/ log them out
+router.delete('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
