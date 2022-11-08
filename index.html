@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+<!-- Header -->
   <header class="header text ">
     <p id="header-welcome">Welcome to</p>
     <p id="programming-blog">Programming Blog</p>
@@ -26,7 +26,8 @@
     <hr>
   </header>
 
-  <div class="container-fluid text-center">
+  <!-- Welcome Page -->
+  <!-- <div class="container-fluid text-center">
     <div class="row align-items-center">
       <div class="col"> 
         <h1>Welcome</h1>
@@ -35,16 +36,151 @@
           and revel in the awesomeness that is programming and design!</p>
       </div>
     </div>
-  </div>
+  </div> -->
 
+  <!-- Login & Sign up Page -->
+  <!-- <div class="container-fluid text-center">
+    <div class="row align-items-center justify-contents-center"> -->
+      <!-- Login Form-->
+      <!-- <div class="col"> 
+        <h2>Login</h2>
+        <form class="login-form">
+          <label for="username-login">Username:</label>
+          <input type="text" id="username-login" name="username-login"><br><br>
+          <label for="email-login">Email:</label>
+          <input type="text" id="email-login" name="email-login"><br><br>
+          <button class="login-btn" type="submit">Login</button>
+        </form> -->
+      <!-- Sign up Form -->
+        <!-- <div class="col"> 
+          <h2>Sign up</h2>
+          <form class="login-form">
+            <label for="username-login">Username:</label>
+            <input type="text" id="username-login" name="username-login"><br><br>
+            <label for="email-login">Email:</label>
+            <input type="text" id="email-login" name="email-login"><br><br>
+            <button class="login-btn" type="submit">Login</button>
+          </form>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Dashboard Page -- only display posts from the user -->
   <div class="container-fluid text-center">
     <div class="row align-items-center">
       <div class="col"> 
-        <h1>Welcome</h1>
-        <p>Welcome to the Programming Blog,
-          a place to ruminate about the latest tech, relish in other's successes,
-          and revel in the awesomeness that is programming and design!</p>
+        <h1>Dashboard</h1>
       </div>
+      <div> 
+        <button type="button" class="btn btn-primary">Create new post</button>
+      </div>
+    </div>
+
+    <div class="row justify-content-around">
+      <!-- Each Review Added -->
+      <div class="col-4 card">
+        <div class="card-body">
+          <a href="#" class="btn btn-primary">Tech I love</a>
+          <p class="card-text">
+            Imogen Waters
+            10/22/22
+          </p>
+        </div>
+      </div>
+
+      <div class="col-4 card">
+        <div class="card-body">
+          <a href="#" class="btn btn-primary">Tech  I love</a>
+          <p class="card-text">
+            Imogen Waters
+            10/22/22
+          </p>
+        </div>
+      </div>
+
+      <div class="col-4 card">
+        <div class="card-body">
+          <a href="#" class="btn btn-primary">Tech I love</a>
+          <p class="card-text">
+            Imogen Waters
+            10/22/22
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Home Page -->
+    <div class="container-fluid text-center">
+      <div class="row align-items-center">
+        <div class="col"> 
+          <h1>Home</h1>
+        </div>
+      </div>
+  
+      <div class="row justify-content-around">
+        <!-- Each Review Added -->
+        <div class="col-4 card">
+          <div class="card-body">
+            <a href="#" class="btn btn-primary">Tech I love</a>
+            <p class="card-text">
+              Imogen Waters
+              10/22/22
+            </p>
+          </div>
+        </div>
+  
+        <div class="col-4 card">
+          <div class="card-body">
+            <a href="#" class="btn btn-primary">Tech I love</a>
+            <p class="card-text">
+              Imogen Waters
+              10/22/22
+            </p>
+          </div>
+        </div>
+  
+        <div class="col-4 card">
+          <div class="card-body">
+            <a href="#" class="btn btn-primary">Tech I love</a>
+            <p class="card-text">
+              Imogen Waters
+              10/22/22
+            </p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+
+  <!-- Viewing a post -- Read/Comment/Update/Delete -->
+  <!-- If this is the users's post then display update, delete buttons, display contenteditable-->
+  <div class="container-fluid">
+    <!-- Title with update & delete buttons-->
+    <div class="row">
+      <p class="col-4">Imogen Waters 10/22/22</p>
+      <a href="#" class="btn btn-primary col-4">Title</a>
+      <a href="#" class="btn btn-primary col-2">Update</a>
+      <a href="#" class="btn btn-primary col-2">Delete</a>
+    </div>
+  
+    <!-- End insert here -->
+    <div class="row">
+      <div class="col text-start">
+        <p contenteditable="true"> 
+          Lorem ipsum dolor sit amet, etiam oportere ei duo, vim no elit etiam vivendum. Sale justo ei eam, pri an agam invidunt, 
+          ad oratio eripuit explicari vim. Delenit nonumes sententiae ne his, mel ipsum dicant ut. Ei diam interpretaris duo, 
+          his quando nonumes recusabo id, reque singulis est id. Tale labores an pri, te elit nobis mei.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <form>
+        <input type="text" id="comment-form" name="comment-form"><br><br>
+        <a href="#" class="btn btn-primary col-2">Comment</a>
+      </form>
     </div>
   </div>
 
