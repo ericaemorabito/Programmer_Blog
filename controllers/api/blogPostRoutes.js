@@ -19,6 +19,8 @@ router.post('/create', withAuth, async (req, res) => {
   }
 });
 
+
+//! error cannot send headers after sent to client
 //TODO:View a certain blog post --> read a certain blog post by the blog post id
 router.get('/:id'), withAuth, async (req, res) => {
   try {
@@ -31,6 +33,11 @@ router.get('/:id'), withAuth, async (req, res) => {
       ],
     });
 
+    if (!blogData) {
+      res.status(404).json({ message: 'There is no blog with this id!' });
+      return;
+    }
+
     const blog = blogData.get({ plain: true });
 
     res.render('blogpost', {
@@ -38,28 +45,33 @@ router.get('/:id'), withAuth, async (req, res) => {
       logged_in: req.session.logged_in
     });
 
-    res.status(200).json(blog) //! testing line only
+    res.status(200);
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 };
 
-//TODO:Update an existing blog post
-router.put('/:id', withAuth, async (req, res)=> {
+// Update an existing blog post
+router.put('/:id', withAuth, async (req, res) => {
   try {
-    const updatedPost = await BlogPost.update( req.body, {
-        where: {
-          id: req.params.id
-        }
-      });
-    
+    const updatedPost = await BlogPost.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    });
+
+    if (!updatedPost) {
+      res.status(404).json({ message: 'There is no blog with this id!' });
+      return;
+    }
     res.status(200).json(updatedPost);
-  }catch (err){
+  } catch (err) {
     res.status(500).json(err);
   }
 });
 
-//TODO:Delete an existing blog post
+// Delete an existing blog post
 router.delete('/:id', async (req, res) => {
   try {
     const deletePost = await BlogPost.destroy({
@@ -74,7 +86,7 @@ router.delete('/:id', async (req, res) => {
     }
 
     res.status(200).json(deletePost);
-  } catch(err) {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
