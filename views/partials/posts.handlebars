@@ -1,9 +1,11 @@
+{{#each posts as |post| }}
 <div class="col-3 card">
   <div class="card-body">
-    <a href="#" class="btn btn-primary p-3">Tech I love</a>
+    <a href="/api/posts/{{id}}" class="blog-title btn btn-primary p-3">{{title}}</a>
     <p class="card-text mt-3">
-      Imogen Waters
-      10/22/22
+      {{name}}
+      {{date_created}}
     </p>
   </div>
 </div>
+{{/each}}

@@ -3,7 +3,7 @@ const { BlogPost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Display the welcome page
-router.get('/welcome', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
 
     res.render('welcome');
