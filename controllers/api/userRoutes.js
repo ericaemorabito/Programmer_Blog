@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const res = require('express/lib/response');
 const { User } = require('../../models');
-const { restore } = require('../../models/User');
 
 // Test -- see all users
 router.get('/', async (req, res) => {

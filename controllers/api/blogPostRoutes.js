@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const res = require('express/lib/response');
-const { BlogPost, User } = require('../../models');
+const{ BlogPost, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Create a new blog post --> withAuth makes sure user is logged in, then creates blog post from the content received in req.body
@@ -21,7 +20,7 @@ router.post('/create', withAuth, async (req, res) => {
 
 
 //! error cannot send headers after sent to client
-//TODO:View a certain blog post --> read a certain blog post by the blog post id
+//TODO: View a certain blog post --> read a certain blog post by the blog post id
 router.get('/:id'), withAuth, async (req, res) => {
   try {
     const blogData = await BlogPost.findByPk(req.params.id, {
@@ -29,8 +28,8 @@ router.get('/:id'), withAuth, async (req, res) => {
         {
           model: User,
           attributes: ['name'],
-        },
-      ],
+        }
+      ]
     });
 
     if (!blogData) {
@@ -38,11 +37,12 @@ router.get('/:id'), withAuth, async (req, res) => {
       return;
     }
 
-    const blog = blogData.get({ plain: true });
+    const blog = blogData.map((blog) => blog.get({ plain: true }));
 
     res.render('blogpost', {
-      ...blog,
-      logged_in: req.session.logged_in
+      blog,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id
     });
 
     res.status(200);
