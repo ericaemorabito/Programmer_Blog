@@ -9,15 +9,19 @@
       <div class="col-4 d-flex justify-content-around">
         <!-- only be able to edit the post if it is your post -->
         {{#if user_id}}
-        <a href="#" class="btn btn-primary col-2">Update</a>
-        <a href="#" class="btn btn-primary col-2">Delete</a>
+        <a id="update-btn" href="#" class="btn btn-primary col-2">Update</a>
+        <a id="delete-btn" href="#" class="btn btn-primary col-2">Delete</a>
         {{/if}}
       </div>
     </div>
     <div class="row mt-4 mb-4">
       <div class="col d-flex flex-column align-items-center justify-content-center">
-        <p contenteditable="true" class="w-75">
+        <p id="blog-content" contenteditable="true" class="w-75">
+        {{#if content}}
         {{content}}
+        {{else}}
+        Start your blog post here ... 
+        {{/if}}
         </p>
       </div>
     </div>

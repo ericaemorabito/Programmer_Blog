@@ -2,6 +2,18 @@ const router = require('express').Router();
 const { BlogPost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+//TODO: Display the new-post page
+router.get('/new', async (req, res) => {
+  try {
+
+    res.render('new-post');
+
+  } catch (err){
+    console.error(err);
+    res.status(500);
+  }
+});
+
 // Display the welcome page
 router.get('/welcome', async (req, res) => {
   try {
