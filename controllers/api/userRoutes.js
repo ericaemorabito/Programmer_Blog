@@ -62,8 +62,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
-//? Logout! --> if the user is logged in then destroy the current session/ log them out
-router.delete('/logout', (req, res) => {
+//TODO Logout! --> if the user is logged in then destroy the current session/ log them out
+router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();

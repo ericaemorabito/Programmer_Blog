@@ -3,7 +3,7 @@ const { BlogPost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Display the welcome page
-router.get('/', async (req, res) => {
+router.get('/welcome', async (req, res) => {
   try {
 
     res.render('welcome');
@@ -26,16 +26,16 @@ router.get('/login', async (req, res) => {
 });
 
 // Home page --> view all blog posts, the date created, and the user's name
-router.get('/home', async (req, res) => {
+router.get('/home', withAuth, async (req, res) => {
   // Find all blog posts and include the name from user table
   try {
     const blogData = await BlogPost.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
-        },
-      ],
+          attributes: ['name']
+        }
+      ]
     });
 
     //Serialize blog post data so the template can read it
@@ -44,7 +44,7 @@ router.get('/home', async (req, res) => {
     // Pass serialized data and session flag into home template
     res.render('home', {
       posts,
-      logged_in: req.session.logged_in
+      logged_in: true
     });
 
     res.status(200);
@@ -56,22 +56,23 @@ router.get('/home', async (req, res) => {
 // Dashboard --> view all blog posts created by a certain user
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    // Find which user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: BlogPost }],
+    // Find all blog posts created by a certain user
+    const userData = await BlogPost.findAll({
+      where: {
+        user_id: req.session.user_id
+      }
     });
 
     //Serialize data
-    const user = userData.get({ plain: true });
+    const users = userData.map((users) => users.get({ plain: true }));
 
     // Pass data to dashboard template
     res.render('dashboard', {
-      ...user,
+      users,
       logged_in: true
     });
 
-    res.status(200).json(user); //! line is for testing purposes only
+    res.status(200);
   } catch (err) {
     res.status(500).json(err);
   }
