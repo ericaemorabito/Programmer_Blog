@@ -1,14 +1,17 @@
 [
   {
     "title": "Check this out",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit velit sit amet massa tristique dignissim. Phasellus bibendum non orci eget iaculis. Ut sollicitudin cursus maximus. Vestibulum ornare efficitur risus in varius. Maecenas non tellus ac nulla scelerisque lobortis ut id magna. Integer consequat rhoncus ex quis dapibus. Nulla at purus eleifend dolor dignissim ultrices nec in erat."
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit velit sit amet massa tristique dignissim. Phasellus bibendum non orci eget iaculis. Ut sollicitudin cursus maximus. Vestibulum ornare efficitur risus in varius. Maecenas non tellus ac nulla scelerisque lobortis ut id magna. Integer consequat rhoncus ex quis dapibus. Nulla at purus eleifend dolor dignissim ultrices nec in erat.",
+    "user_id": 1
   },
   {
     "title": "Amazing new idea!",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit velit sit amet massa tristique dignissim. Phasellus bibendum non orci eget iaculis. Ut sollicitudin cursus maximus. Vestibulum ornare efficitur risus in varius. Maecenas non tellus ac nulla scelerisque lobortis ut id magna. Integer consequat rhoncus ex quis dapibus. Nulla at purus eleifend dolor dignissim ultrices nec in erat."
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit velit sit amet massa tristique dignissim. Phasellus bibendum non orci eget iaculis. Ut sollicitudin cursus maximus. Vestibulum ornare efficitur risus in varius. Maecenas non tellus ac nulla scelerisque lobortis ut id magna. Integer consequat rhoncus ex quis dapibus. Nulla at purus eleifend dolor dignissim ultrices nec in erat.",
+    "user_id": 2
   },
   {
     "title": "YAY Coding!",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit velit sit amet massa tristique dignissim. Phasellus bibendum non orci eget iaculis. Ut sollicitudin cursus maximus. Vestibulum ornare efficitur risus in varius. Maecenas non tellus ac nulla scelerisque lobortis ut id magna. Integer consequat rhoncus ex quis dapibus. Nulla at purus eleifend dolor dignissim ultrices nec in erat."
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit velit sit amet massa tristique dignissim. Phasellus bibendum non orci eget iaculis. Ut sollicitudin cursus maximus. Vestibulum ornare efficitur risus in varius. Maecenas non tellus ac nulla scelerisque lobortis ut id magna. Integer consequat rhoncus ex quis dapibus. Nulla at purus eleifend dolor dignissim ultrices nec in erat.",
+    "user_id": 3
   }
 ]

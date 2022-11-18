@@ -8,20 +8,16 @@
       <a href="/post/{{id}}" class="btn btn-primary col-4 fs-1">{{title}}</a>
       <div class="col-4 d-flex justify-content-around">
         <!-- only be able to edit the post if it is your post -->
-        {{#if user_id}}
+        {{!-- {{#if user_id}} --}}
         <a id="update-btn" href="#" class="btn btn-primary col-2">Update</a>
         <a id="delete-btn" href="#" class="btn btn-primary col-2">Delete</a>
-        {{/if}}
+        {{!-- {{/if}} --}}
       </div>
     </div>
     <div class="row mt-4 mb-4">
       <div class="col d-flex flex-column align-items-center justify-content-center">
-        <p id="blog-content" contenteditable="true" class="w-75">
-        {{#if content}}
+        <p id="blog-content" class="w-75">
         {{content}}
-        {{else}}
-        Start your blog post here ... 
-        {{/if}}
         </p>
       </div>
     </div>

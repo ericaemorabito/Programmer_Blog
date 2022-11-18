@@ -1,6 +1,4 @@
-const { response } = require("express");
-
-// TODO: create new post button
+// Create new post button
 const createBlogPost = async function (event) {
   //collect values from title and content
   const title = document.getElementById('blog-title').value.trim();
@@ -22,30 +20,30 @@ const createBlogPost = async function (event) {
   }
 };
 
-document.getElementById('create-post').addEventListener('click', createBlogPost);
+document.getElementById('create-post-btn').addEventListener('click', createBlogPost);
 
 // TODO: update post button
-const updateBlogPost = async function (event) {
+// const updateBlogPost = async function (event) {
 
-  //collect value from content 
-  const blogContent = document.getElementById('blog-content').value.trim();
+//   //collect value from content 
+//   const blogContent = document.getElementById('blog-content').value.trim();
 
-  // send a UPDATE request to this route
-  const response = await fetch('/api/posts/:id', {
-    method: 'UPDATE',
-    body: JSON.stringify({ blogContent }),
-    headers: { 'Content-Type': 'application/json' },
-  });
+//   // send a UPDATE request to this route
+//   const response = await fetch('/api/posts/:id', {
+//     method: 'UPDATE',
+//     body: JSON.stringify({ blogContent }),
+//     headers: { 'Content-Type': 'application/json' },
+//   });
 
-  // If the request worked, then go back to the dashboard
-  if (response.ok) {
-    document.location.replace('/dashboard');
-  } else {
-    alert(response.statusText);
-    console.log('not working');
-  }
-};
+//   // If the request worked, then go back to the dashboard
+//   if (response.ok) {
+//     document.location.replace('/dashboard');
+//   } else {
+//     alert(response.statusText);
+//     console.log('not working');
+//   }
+// };
 
-document.getElementById('update-btn').addEventListener('click', updateBlogPost);
+// document.getElementById('update-btn').addEventListener('click', updateBlogPost);
 
 // TODO: delete post button

@@ -10,7 +10,8 @@
     "sequelize": "^6.25.3"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
   },
   "name": "programmer_blog",
   "description": "",

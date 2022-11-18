@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { BlogPost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-//TODO: Display the new-post page
+// Display the new-post page
 router.get('/new', async (req, res) => {
   try {
 
@@ -15,7 +15,7 @@ router.get('/new', async (req, res) => {
 });
 
 // Display the welcome page
-router.get('/welcome', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
 
     res.render('welcome');
@@ -90,33 +90,34 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-//! trying to add this to home routes
 // //TODO: View a certain blog post --> read a certain blog post by the blog post id
 router.get('/post/:id'), withAuth, async (req, res) => {
   try {
     const blogData = await BlogPost.findByPk(req.params.id, {
       include: [
-        {
-          model: User,
-          attributes: ['name'],
-        }
-      ]
+            {
+              model: User,
+              attributes: ['name'],
+            }
+          ]
     });
 
-    if (!blogData) {
-      res.status(404).json({ message: 'There is no blog with this id!' });
+    if(blogData){
+      const blog = blogData.get({ plain: true });
+
+      res.render('blogpost', {
+        blog,
+        logged_in: req.session.logged_in
+      });
+
+      res.status(200);
+
+    } else {
+      res.status(404).end();
+      //.json({ message: 'There is no blog with this id!' });
       return;
     }
 
-    const blog = blogData.get({ plain: true });
-
-    res.render('blogpost', {
-      ...blog,
-      logged_in: req.session.logged_in,
-      user_id: req.session.user_id
-    });
-
-    res.status(200);
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

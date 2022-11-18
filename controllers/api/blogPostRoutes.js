@@ -18,37 +18,40 @@ router.post('/create', withAuth, async (req, res) => {
   }
 });
 
-// //TODO: View a certain blog post --> read a certain blog post by the blog post id
-// router.get('/:id'), withAuth, async (req, res) => {
-//   try {
-//     const blogData = await BlogPost.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         }
-//       ]
-//     });
+// TODO: View a certain blog post --> read a certain blog post by the blog post id
+router.get('/:id'), withAuth, async (req, res) => {
+  try {
+    const blogData = await BlogPost.findByPk(req.params.id
+    //   , {
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     }
+    //   ]
+    // }
+    );
 
-//     if (!blogData) {
-//       res.status(404).json({ message: 'There is no blog with this id!' });
-//       return;
-//     }
+    if (!blogData) {
+      res.status(404).json({ message: 'There is no blog with this id!' });
+      return;
+    }
 
-//     const blog = blogData.map((blog) => blog.get({ plain: true }));
+    // const blog = blogData.map((blog) => blog.get({ plain: true }));
+    const blog = blogData.get({ plain: true });
 
-//     res.render('blogpost', {
-//       blog,
-//       logged_in: req.session.logged_in,
-//       user_id: req.session.user_id
-//     });
+    res.render('blogpost', {
+      ...blog,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id
+    });
 
-//     res.status(200);
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json(err);
-//   }
-// };
+    res.status(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};
 
 // Update an existing blog post
 router.put('/:id', withAuth, async (req, res) => {
