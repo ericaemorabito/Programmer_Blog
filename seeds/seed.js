@@ -19,6 +19,13 @@ const seedDatabase = async () => {
     });
   }
 
+  // for (const comment of commentData) {
+  //   await Comments.create({
+  //     ...blog,
+  //     user_id: users[Math.floor(Math.random() * users.length)].id,
+  //   });
+  // }
+
   process.exit(0);
 };
 

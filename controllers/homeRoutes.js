@@ -93,28 +93,26 @@ router.get('/dashboard', withAuth, async (req, res) => {
 // //TODO: View a certain blog post --> read a certain blog post by the blog post id
 router.get('/post/:id'), withAuth, async (req, res) => {
   try {
-    const blogData = await BlogPost.findByPk(req.params.id, {
-      include: [
-            {
-              model: User,
-              attributes: ['name'],
-            }
-          ]
-    });
+    const blogData = await BlogPost.findByPk(req.params.id
+    //   , {
+    //   include: [
+    //         {
+    //           model: User,
+    //           attributes: ['name'],
+    //         }
+    //       ]
+    // }
+    );
 
     if(blogData){
       const blog = blogData.get({ plain: true });
-
       res.render('blogpost', {
-        blog,
+        ...blog,
         logged_in: req.session.logged_in
       });
-
       res.status(200);
-
     } else {
-      res.status(404).end();
-      //.json({ message: 'There is no blog with this id!' });
+      res.status(404).json({ message: 'There is no blog with this id!' });
       return;
     }
 
