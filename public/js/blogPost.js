@@ -20,7 +20,7 @@ const createBlogPost = async function (event) {
   }
 };
 
-document.getElementById('create-post-btn').addEventListener('click', createBlogPost);
+//document.getElementById('create-post-btn').addEventListener('click', createBlogPost);
 
 // TODO: update post button
 // const updateBlogPost = async function (event) {
