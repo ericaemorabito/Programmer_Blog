@@ -91,7 +91,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 // //TODO: View a certain blog post --> read a certain blog post by the blog post id
-router.get('/post/:id'), withAuth, async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
   try {
     const blogData = await BlogPost.findByPk(req.params.id
     //   , {
@@ -120,8 +120,7 @@ router.get('/post/:id'), withAuth, async (req, res) => {
     console.error(err);
     res.status(500).json(err);
   }
-};
-
+});
 
 // Login redirects
 // If the users is already logged in -> redirect to home page
